@@ -6,8 +6,9 @@ import json
 
 app = Flask(__name__)
 CORS(app)
-filename = "rf_model.sav"
+filename = "randomforest.pkl"
 model = pickle.load(open(filename, 'rb'))
+
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -25,5 +26,3 @@ def predict():
 @app.route('/health', methods=['GET'])
 def ping():
     return jsonify({'heath': "healthy"})
-
-
